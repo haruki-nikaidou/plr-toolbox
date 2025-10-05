@@ -1,0 +1,9 @@
+[package]
+name = "totp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ring = "0.17"
+fast32 = {workspace = true}
+rand = {workspace = true}

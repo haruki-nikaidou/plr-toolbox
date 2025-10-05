@@ -2,6 +2,7 @@
 resolver = "3"
 members = [
     "libs/kanaeru",
+    "libs/totp",
     "modules/auth",
     "modules/plan"
 ]
