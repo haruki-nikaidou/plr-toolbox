@@ -4,3 +4,27 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+anyhow = { workspace = true }
+kanau = { workspace = true }
+sqlx = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+amqprs = { workspace = true }
+tokio = { workspace = true }
+tonic-prost = { workspace = true }
+tracing = { workspace = true }
+time = { workspace = true }
+compact_str = { workspace = true }
+lettre = { workspace = true }
+rand = { workspace = true }
+redis = { workspace = true }
+uuid = { workspace = true }
+jsonwebtoken = { workspace = true }
+tonic = { workspace = true }
+prost = { workspace = true }
+prost-types = { workspace = true }
+tower = { workspace = true }
+fast32 = { workspace = true }
+kanaeru = { path = "../../libs/kanaeru" }
+argon2 = {version = "0.5", features = ["std"]}
+zeroize = {workspace = true}
