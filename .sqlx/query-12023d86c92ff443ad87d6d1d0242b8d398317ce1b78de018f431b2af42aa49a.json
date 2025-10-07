@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM auth.email_otp WHERE created_at < $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Timestamp"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "12023d86c92ff443ad87d6d1d0242b8d398317ce1b78de018f431b2af42aa49a"
+}

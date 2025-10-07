@@ -1,0 +1,76 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO auth.email_otp (email, otp, reason) VALUES ($1, $2, $3) \n            RETURNING id, email, otp, has_been_used, created_at, reason as \"reason: OtpReason\"\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "email",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "otp",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "has_been_used",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 5,
+        "name": "reason: OtpReason",
+        "type_info": {
+          "Custom": {
+            "name": "auth.otp_reason",
+            "kind": {
+              "Enum": [
+                "change_password",
+                "change_email_address",
+                "delete_account"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        {
+          "Custom": {
+            "name": "auth.otp_reason",
+            "kind": {
+              "Enum": [
+                "change_password",
+                "change_email_address",
+                "delete_account"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "3acba41b976a81e9225423850547bbc8b1bd682d73e4b14b10610a3f51d7cd0f"
+}

@@ -1,0 +1,64 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT id, email, otp, has_been_used, created_at, reason as \"reason: OtpReason\"\n            FROM auth.email_otp \n            WHERE email = $1 AND created_at > $2 AND has_been_used = FALSE\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "email",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "otp",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "has_been_used",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 5,
+        "name": "reason: OtpReason",
+        "type_info": {
+          "Custom": {
+            "name": "auth.otp_reason",
+            "kind": {
+              "Enum": [
+                "change_password",
+                "change_email_address",
+                "delete_account"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Timestamp"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "fc38c2bc39e0b71d46bc193bfcb55e99bf2084b1d0de9b1d25202f66d1b01b80"
+}
