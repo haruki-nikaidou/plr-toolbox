@@ -12,6 +12,20 @@ CREATE TABLE IF NOT EXISTS "auth"."user_profile"
     updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+CREATE OR REPLACE FUNCTION "auth"."user_profile_updated_at_trigger"()
+    RETURNS TRIGGER AS
+$$
+BEGIN
+    NEW."updated_at" = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+CREATE TRIGGER "auth-user_profile_updated_at_trigger"
+    BEFORE UPDATE
+    ON "auth"."user_profile"
+    FOR EACH ROW
+EXECUTE FUNCTION "auth"."user_profile_updated_at_trigger"();
+
 CREATE TYPE "auth"."otp_reason" AS ENUM (
     'change_password',
     'change_email_address',
