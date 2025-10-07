@@ -1,7 +1,7 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
-CREATE SCHEMA IF NOT EXISTS auth;
+CREATE SCHEMA IF NOT EXISTS "auth";
 
 CREATE TABLE IF NOT EXISTS "auth"."user_profile"
 (
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS "auth"."email_otp"
     reason        "auth"."otp_reason" NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS "auth"."email_otp_email_idx" ON "auth"."email_otp" ("email") WHERE "has_been_used" = FALSE;
-CREATE INDEX IF NOT EXISTS "auth"."email_otp_time_idx" ON "auth"."email_otp" ("created_at");
+CREATE INDEX IF NOT EXISTS "auth-email_otp_email_idx" ON "auth"."email_otp" ("email") WHERE "has_been_used" = FALSE;
+CREATE INDEX IF NOT EXISTS "auth-email_otp_time_idx" ON "auth"."email_otp" ("created_at");
 
 CREATE TABLE IF NOT EXISTS "auth"."email_account"
 (
