@@ -19,7 +19,7 @@ impl core::fmt::Debug for EmailAccount {
         f.debug_struct("EmailAccount")
             .field("id", &self.id)
             .field("email", &self.email)
-            .field("password_hash", "[redacted]")
+            .field("password_hash", &"[redacted]")
             .field("user_id", &self.user_id)
             .field("banned_at", &self.banned_at)
             .finish()

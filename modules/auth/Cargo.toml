@@ -28,3 +28,4 @@ fast32 = { workspace = true }
 kanaeru = { path = "../../libs/kanaeru" }
 argon2 = {version = "0.5", features = ["std"]}
 zeroize = {workspace = true}
+rkyv = {workspace = true}

@@ -85,7 +85,7 @@ lettre = { version = "0.11", features = ["tokio1", "tokio1-native-tls"] }
 # Auth & Security
 rand = "0.9.1"
 validator = "0.20.0"
-jsonwebtoken = "10.0"
+jsonwebtoken = "9"
 sha2 = "0.10"
 zeroize = { version = "1.8", features = ["derive"] }
 
